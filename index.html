@@ -163,5 +163,23 @@
             </svg>
             <span><strong>You have an upcoming booking in 3 days</strong></span>
         </div>
+        <script>
+            (function() {
+                function notifyAndroidBridge() {
+                    var banner = document.getElementById('mock-ui');
+                    if (banner && window.AndroidBridge && typeof window.AndroidBridge.setHeight === 'function') {
+                        window.AndroidBridge.setHeight(banner.clientHeight);
+                    }
+                }
+
+                // Also trigger on window resize as a fallback
+                window.addEventListener('resize', notifyAndroidBridge);
+
+                // Trigger once on load
+                window.addEventListener('DOMContentLoaded', function() {
+                    notifyAndroidBridge();
+                });
+            })();
+        </script>
     </body>
 </html>
