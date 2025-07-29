@@ -1,1 +1,0 @@
-# thirawutp.github.io
